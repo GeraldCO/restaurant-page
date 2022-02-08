@@ -1,4 +1,4 @@
-import createCard from "./menu";
+import loadMenu from "./menu";
 import loadRewards from './rewards';
 import loadContact from "./contact";
 
@@ -14,11 +14,17 @@ export function createHeader(title){
     return mainContainerHeader;
 }
 
+function getContentDiv(){
+    const content = document.querySelector('#content');
+    return content
+}
+
 function createNav(){
     const topNav = document.createElement('nav');
     const menuButton = document.createElement('button');
     const rewardsButton = document.createElement('button');
     const contactUsButton = document.createElement('button');
+    const content = getContentDiv();
 
     menuButton.innerHTML = 'Menu';
 
@@ -32,15 +38,18 @@ function createNav(){
     contactUsButton.classList.add('button-nav');
 
     menuButton.addEventListener('click', (e)=>{
-        createCard();
+        content.removeChild(content.children[1]);
+        content.append(loadMenu());
     });
 
     rewardsButton.addEventListener('click', (e)=>{
-        loadRewards();
+        content.removeChild(content.children[1]);
+        content.append(loadRewards());
     });
 
     contactUsButton.addEventListener('click', (e)=>{
-        loadContact();
+        content.removeChild(content.children[1]);
+        content.append(loadContact());
     });
 
     topNav.appendChild(menuButton);
@@ -51,16 +60,10 @@ function createNav(){
 }
 
 function initializeWebsite(){
-    const content = document.querySelector('#content');
+    const content = getContentDiv();
     content.appendChild(createNav());
-    content.appendChild(createCard());
+    content.appendChild(loadMenu());
 
 }
 
-export function createMainContainer(){
-    const mainContainer = document.createElement('div');
-    mainContainer.classList.add('mainContainer');
-    
-    return mainContainer;
-}
 export default initializeWebsite;
