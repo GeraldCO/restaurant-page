@@ -31,21 +31,18 @@ function createCard( pictureSrc, spamH3Text, cardTitleText, pDescriptionText, bu
     
 
     fluidCardRow.append(fcsContainer);
-    fcsContainer.append(cardIMage);
-    cardTitle.append(cardTitleH3);
-    cardContent.append(cardTitle);
-    cardContent.append(pCardDescription);
-    cardContent.append(btnWrapper);
-    fcsContainer.append(cardContent);
+    fcsContainer.append(cardIMage, cardContent);
+    cardTitle.append(cardTitleH3, spamH3);
+    cardContent.append(cardTitle, pCardDescription, btnWrapper);
+
     cardIMage.append(cardIMageFile);
     btnWrapper.append(aButtonLink);
-    cardTitle.append(spamH3);
 
     pCardDescription.textContent= pDescriptionText;
     cardIMageFile.src = pictureSrc;
-    spamH3.innerHTML = spamH3Text;
-    cardTitleH3.innerHTML = cardTitleText;
-    aButtonLink.innerHTML = buttonText;
+    spamH3.innerText = spamH3Text;
+    cardTitleH3.innerText = cardTitleText;
+    aButtonLink.innerText = buttonText;
     aButtonLink.href = '#';
     return fluidCardRow;
 }
