@@ -7,7 +7,7 @@ import personalize from './media/c2_2_personalize_fluid_600x420.png';
 import snacks from './media/c2_snacks_fluid_600x420.png';
 
 
-function createCard( pictureSrc, spamH3Text, cardTitleText, pDescriptionText, buttonText){
+export function createCard( pictureSrc, spamH3Text, cardTitleText, pDescriptionText, buttonText){
     createHeader('Jamb Juice');
     const fluidCardRow = document.createElement('div');
     const fcsContainer = document.createElement('div');

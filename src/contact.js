@@ -3,6 +3,8 @@ import deliveryService from  './media/delivery.beb01933.svg';
 import rewardsService from './media/rewards.b84a197e.svg';
 import giftCardsServices from './media/gift_cards.ca7bd098.svg';
 
+import { createCard } from './menu';
+
 function loadContact(){
     const mainContainer = document.createElement('div');
     mainContainer.classList.add('mainContainer');

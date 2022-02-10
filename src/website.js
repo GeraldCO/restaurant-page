@@ -16,7 +16,7 @@ export function createHeader(title){
 
 function getContentDiv(){
     const content = document.querySelector('#content');
-    return content
+    return content;
 }
 
 function createNav(){
@@ -31,24 +31,32 @@ function createNav(){
     rewardsButton.innerHTML = 'Rewards';
     contactUsButton.innerHTML = 'Contact Us';
 
-    menuButton.classList.add('button-nav');
-    menuButton.classList.add('active');
+    menuButton.classList.add('button-nav', 'active');
 
     rewardsButton.classList.add('button-nav');
     contactUsButton.classList.add('button-nav');
 
     menuButton.addEventListener('click', (e)=>{
         content.removeChild(content.children[1]);
+        menuButton.classList.add('active');
+        rewardsButton.classList.remove('active');
+        contactUsButton.classList.remove('active');
         content.append(loadMenu());
     });
 
     rewardsButton.addEventListener('click', (e)=>{
         content.removeChild(content.children[1]);
+        rewardsButton.classList.add('active');
+        menuButton.classList.remove('active');
+        contactUsButton.classList.remove('active');
         content.append(loadRewards());
     });
 
     contactUsButton.addEventListener('click', (e)=>{
         content.removeChild(content.children[1]);
+        contactUsButton.classList.add('active');
+        menuButton.classList.remove('active');
+        rewardsButton.classList.remove('active');
         content.append(loadContact());
     });
 
